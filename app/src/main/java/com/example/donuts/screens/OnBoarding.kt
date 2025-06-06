@@ -2,14 +2,13 @@ package com.example.donuts.screens
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
-import androidx.compose.foundation.gestures.Orientation
-import androidx.compose.foundation.gestures.scrollable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -36,7 +35,7 @@ import com.example.donuts.ui.theme.interSemiBold
 fun OnBoarding() {
 
     Scaffold(Modifier.fillMaxSize()) {
-        Box(
+        Column(
             Modifier
                 .fillMaxSize()
                 .background(Color(0xFFFED8DF))
@@ -44,17 +43,14 @@ fun OnBoarding() {
                 .verticalScroll(state = rememberScrollState(), enabled = true)
         ) {
             Image(
-                painter = painterResource(R.drawable.onboarding_img),
-                null,
-                Modifier
-                    .align(Alignment.TopStart)
+                painter = painterResource(R.drawable.onboarding_img), null, Modifier
+
                     .height(592.dp)
-                    .fillMaxWidth(),
-                contentScale = ContentScale.FillBounds
+                    .fillMaxWidth(), contentScale = ContentScale.FillBounds
             )
             Column(
                 Modifier
-                    .align(Alignment.BottomStart)
+                    .offset(y = -100.dp)
                     .padding(start = 40.dp, bottom = 46.dp, end = 40.dp)
             ) {
                 Text(
